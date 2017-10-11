@@ -9,7 +9,7 @@
     jmp $
 
 %include "bootPrint.asm"
-%include "boot_sect_gdt.asm"
+%include "gdt.asm"
 %include "print32.asm"
 %include "switch32.asm"
 
