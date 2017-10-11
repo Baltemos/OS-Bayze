@@ -6,7 +6,7 @@ print32:
     pusha
     mov edx, vidMem
 
-print32loop:
+print32Loop:
     mov al, [ebx]
     mov ah, WoB
 
