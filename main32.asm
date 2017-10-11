@@ -14,7 +14,7 @@
 %include "switch32.asm"
 
 [bits 32]
-start32: ; after the switch we will get here
+start32:
     mov ebx, bit32
     call print32
     jmp $
