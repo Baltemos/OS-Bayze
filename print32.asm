@@ -17,7 +17,7 @@ print32loop:
     add ebx, 1
     add edx, 2
 
-    jmp print32End
+    jmp print32Loop
 
 print32End:
     popa
