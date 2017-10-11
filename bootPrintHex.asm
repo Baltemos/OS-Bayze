@@ -16,7 +16,7 @@ hexLoop:
     add al, 7
 
 step2:
-    mov bx, HEX_OUT + 5
+    mov bx, hexOut + 5
     sub bx, cx
     mov [bx], al
     ror dx, 4
