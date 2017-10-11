@@ -2,7 +2,7 @@
     mov bp, 0x9000 ; set the stack
     mov sp, bp
 
-    mov bx, 16bit
+    mov bx, bit16
     call print 
 
     call switch32
@@ -15,13 +15,12 @@
 
 [bits 32]
 start32: ; after the switch we will get here
-    mov ebx, 32bit
+    mov ebx, bit32
     call print32
     jmp $
 
-16bit db "Booted in 16-bit real mode", 0
-32bit db "Loaded 32-bit protected mode", 0
+bit16 db "Booted in 16-bit real mode", 0
+bit32 db "Loaded 32-bit protected mode", 0
 
-; bootsector
 times 510-($-$$) db 0
 dw 0xaa55
