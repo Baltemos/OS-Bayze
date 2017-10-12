@@ -19,4 +19,4 @@ init32:
     mov ebp, 0x90000
     mov esp, ebp
 
-    call start32
+    call startPM
