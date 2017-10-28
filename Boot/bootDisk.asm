@@ -10,7 +10,7 @@ diskLoad:
     
     for int 13h
     int 0x13      
-    jc disk_error 
+    jc diskError 
 
     pop dx
     cmp al, dh 
