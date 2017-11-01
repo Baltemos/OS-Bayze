@@ -2,7 +2,7 @@ printHex:
     pusha
 
     mov cx, 0
-add 0x40
+
 
 hexLoop:
     cmp cx, 4 ; loop 4 times
