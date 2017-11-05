@@ -1,19 +1,22 @@
-#include "../Drivers/ports.c"
+#include "../cpu/isr.h"
+#include "../drivers/screen.h"
+#include "kernel.h"
+#include "../libc/string.h"
 
 void main() {
-    
-    
-    portByteOut(0x3d4, 14); 
-    int position = portByteIn(0x3d5);
-    position = position << 8;
+    isr_install();
+    irq_install();
 
-    portByteOut(0x3d4, 15); 
-    position += portByteIn(0x3d5);
+    kprint("Type something, it will go through the kernel\n"
+        "Type END to halt the CPU\n> ");
+}
 
-    int offsetFromVga = position * 2;
-
-    
-    char *vga = 0xb8000;
-    vga[offsetFromVga] = 'D'; 
-    vga[offsetFromVga + 1] = 0x0f; 
+void user_input(char *input) {
+    if (strcmp(input, "END") == 0) {
+        kprint("Stopping the CPU. Bye!\n");
+        asm volatile("hlt");
+    }
+    kprint("You said: ");
+    kprint(input);
+    kprint("\n> ");
 }
